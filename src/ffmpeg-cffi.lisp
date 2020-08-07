@@ -4,25 +4,25 @@
 (defparameter *CODEC-FLAG-GLOBAL-HEADER* #x400000)
 
 (define-foreign-library libavformat
-  (:unix (:or "/usr/local/lib/libavformat.so"))
+  (:unix (:or "/usr/lib/libavformat.so"))
   (t (:default "libavformat")))
 
 (use-foreign-library libavformat)
 
 (define-foreign-library libavcodec
-  (:unix (:or "/usr/local/lib/libavcodec.so"))
+  (:unix (:or "/usr/lib/libavcodec.so"))
   (t (:default "libavcodec")))
 
 (use-foreign-library libavcodec)
 
 (define-foreign-library libswresample
-  (:unix (:or "/usr/local/lib/libswresample.so"))
+  (:unix (:or "/usr/lib/libswresample.so"))
   (t (:default "libswresample")))
 
 (use-foreign-library libswresample)
 
 (define-foreign-library ffmpeg-wrapper
-  (:unix (:or "/usr/local/lib/ffmpeg-wrapper.so"))
+  (:unix (:or "/usr/lib/ffmpeg-wrapper.so"))
   (t (:default "ffmpeg-wrapper")))
 
 (use-foreign-library ffmpeg-wrapper)

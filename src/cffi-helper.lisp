@@ -17,7 +17,6 @@
 
 (with-full-eval
   (defstruct (cffi-return (:constructor cffi-return (type c-type assert-macro))) type c-type assert-macro)
-
   (defparameter *cffi-asserts* (make-hash-table)))
 
 (defmacro define-cffi-return-types(return-types)
@@ -40,7 +39,6 @@
        `(,function ,@args)))
 
 (defmacro defcfun*(name-and-options return-type &body args)
-
   (multiple-value-bind (c-name lisp-name new-lisp-name)
       (if (atom name-and-options)
 	  (values (default-c-name name-and-options) name-and-options (make-function name-and-options))
@@ -54,8 +52,7 @@
        ,(let ((lambda-list (qmap (arg) (get-first-atom arg) args)))
 	     `(defmacro ,lisp-name ,lambda-list
 		`(call-assert ,',return-type ,',lisp-name ,',new-lisp-name ,,@lambda-list))))))
-		  			     
-	 
+
 (defcfun memset :pointer
   (ptr :pointer)
   (value :int)
