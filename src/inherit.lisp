@@ -12,7 +12,7 @@
 		     (.sym 'make '- name)))))
 	  (let ((accesors (qmap (slot) (.sym name '- slot) slots)))
 	    `(progn
-	       (format t (% "COPY THIS:~%**********~%~a~%***********~%" ,(join " " (mapcar (lambda(item) (% ":~a" item))  (make-set (append (list name constructor) slots accesors))))))  	   
+	       (format t (% "COPY THIS:~%**********~%~a~%***********~%" ,(join " " (mapcar (lambda(item) (% ":~a" item))  (make-set (append (list name constructor) slots accesors))))))
 	       (defstruct ,name-and-options ,@slot-descriptions)))))))
 
 (defstruct* (ffmpeg-env (:constructor ffmpeg-env (ring-buffer in-device out-device)))

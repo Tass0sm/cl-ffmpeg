@@ -463,5 +463,3 @@
 	 (format t "processing ~a" pf)
 	 (test-ffmpeg pf) 
 	 (format t "processed ~a" pf))))
-
-  
